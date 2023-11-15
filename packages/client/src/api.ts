@@ -1,7 +1,7 @@
 const API_URL = 'http://localhost:3000'
 
 export type Tag = {
-  name: string,
+  name: string
   color: string
 }
 
@@ -22,7 +22,7 @@ export type Experiment = {
 export const apiClient = {
   getExperiments: async () => {
     const response = await fetch(`${API_URL}/experiments`)
-    const experiments = await response.json() as Experiment[]
+    const experiments = (await response.json()) as Experiment[]
     return experiments
   },
 }

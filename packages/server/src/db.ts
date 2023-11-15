@@ -2,16 +2,17 @@ export const EXPERIMENTS = [
   {
     id: '1',
     name: 'Experiment 1',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eget risus eget magna ultricies laoreet non sit amet urna. Sed eu porttitor lorem. Vivamus mollis dignissim turpis, vel lacinia mauris auctor id. Aliquam erat volutpat. Donec maximus dolor in mauris facilisis',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eget risus eget magna ultricies laoreet non sit amet urna. Sed eu porttitor lorem. Vivamus mollis dignissim turpis, vel lacinia mauris auctor id. Aliquam erat volutpat. Donec maximus dolor in mauris facilisis',
     tags: [
       {
         name: 'Bun',
-        color: 'red'
+        color: 'red',
       },
       {
         name: 'Vue',
-        color: 'blue'
-      }
+        color: 'blue',
+      },
     ],
     group: {
       id: '1',
@@ -27,25 +28,26 @@ export const EXPERIMENTS = [
     tags: [
       {
         name: 'React',
-        color: 'green'
+        color: 'green',
       },
       {
         name: 'Solid',
-        color: 'orange'
+        color: 'orange',
       },
       {
         name: 'AWS',
-        color: 'blue'
-      }
+        color: 'blue',
+      },
     ],
     group: {
       id: '1',
-      name: 'My experiments group'
-    }
+      name: 'My experiments group',
+    },
   },
   {
     id: '3',
-    description: 'Mauris faucibus magna commodo, luctus mi in, congue eros. Nam posuere, augue in venenatis pharetra, ante tortor dictum lacus, eget dignissim ipsum arcu vitae libero. ',
+    description:
+      'Mauris faucibus magna commodo, luctus mi in, congue eros. Nam posuere, augue in venenatis pharetra, ante tortor dictum lacus, eget dignissim ipsum arcu vitae libero. ',
     name: 'Experiment 3',
     parentId: null,
     group: []

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react'
 
 import {
   TableContainer,
@@ -14,29 +14,24 @@ import {
   Heading,
   Flex,
   Text,
-} from "@chakra-ui/react";
-import { Experiment, apiClient } from "./api";
+} from '@chakra-ui/react'
+import { Experiment, apiClient } from './api'
 
 function App() {
-  const [experiments, setExperiments] = useState<Experiment[] | undefined>(
-    undefined
-  );
-  const [selectedExperiment, setSelectedExperiment] = useState<
-    Experiment | undefined
-  >(undefined);
-
+  const [experiments, setExperiments] = useState<Experiment[] | undefined>(undefined)
+  const [selectedExperiment, setSelectedExperiment] = useState<Experiment | undefined>(undefined)
   useEffect(() => {
     (async () => {
-      const experiments = await apiClient.getExperiments();
-      setExperiments(experiments);
-    })();
-  }, []);
+      const experiments = await apiClient.getExperiments()
+      setExperiments(experiments)
+    })()
+  }, [])
 
   if (experiments === undefined) {
-    return "Loading ...";
+    return 'Loading ...'
   }
   if (experiments.length === 0) {
-    return "No experiments 😥";
+    return 'No experiments 😥'
   }
   return (
     <>
@@ -53,11 +48,7 @@ function App() {
           </Thead>
           <Tbody>
             {experiments.map((experiment) => (
-              <Tr
-                onClick={() => setSelectedExperiment(experiment)}
-                cursor={"pointer"}
-                key={experiment.id}
-              >
+              <Tr onClick={() => setSelectedExperiment(experiment)} cursor={'pointer'} key={experiment.id}>
                 <Td>{experiment.id}</Td>
                 <Td>{experiment.name}</Td>
                 <Td>
@@ -77,14 +68,14 @@ function App() {
       </TableContainer>
       {selectedExperiment && <ExperimentCard experiment={selectedExperiment} />}
     </>
-  );
+  )
 }
 
 function ExperimentCard({ experiment }: { experiment: Experiment }) {
   return (
-    <Card color={"gray.400"} bg={"gray.700"} p={8}>
-      <Flex mb={"16px"} gap={"16px"} alignItems={"center"}>
-        <Heading as={"h2"} size={"lg"}>
+    <Card color={'gray.400'} bg={'gray.700'} p={8}>
+      <Flex mb={'16px'} gap={'16px'} alignItems={'center'}>
+        <Heading as={'h2'} size={'lg'}>
           {experiment.name}
         </Heading>
         <Flex>
@@ -95,15 +86,15 @@ function ExperimentCard({ experiment }: { experiment: Experiment }) {
           ))}
         </Flex>
       </Flex>
-      <Text mb={"12px"}>{experiment.description}</Text>
+      <Text mb={'12px'}>{experiment.description}</Text>
       {experiment.group && (
         <Flex>
-          <Text mr={"4px"}>Group : </Text>
-          <Text fontWeight={"bold"}>{experiment.group.name.toLowerCase()}</Text>
+          <Text mr={'4px'}>Group : </Text>
+          <Text fontWeight={'bold'}>{experiment.group.name.toLowerCase()}</Text>
         </Flex>
       )}
     </Card>
-  );
+  )
 }
 
-export default App;
+export default App

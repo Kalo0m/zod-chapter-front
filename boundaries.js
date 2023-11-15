@@ -12,7 +12,7 @@ const workshopDate = form.elements.namedItem('workshop-date')
 //    ^? Element | RadioNodeList | null 😵
 
 // fetching data from an API
-const data = await fetch('/api/workshops').then(r => r.json())
+const data = await fetch('/api/workshops').then((r) => r.json())
 //    ^? any 😭
 
 // getting config and/or conventional params (like from Remix or React Router)
