@@ -31,6 +31,9 @@ importers:
       react-dom:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
+      zod:
+        specifier: ^3.22.4
+        version: 3.22.4
     devDependencies:
       '@types/react':
         specifier: ^18.2.15
@@ -65,16 +68,13 @@ importers:
 
   packages/server:
     dependencies:
-      '@hono/node-server':
-        specifier: ^1.2.2
-        version: 1.2.2
       hono:
-        specifier: ^3.10.0
-        version: 3.10.0
+        specifier: ^3.10.1
+        version: 3.10.1
     devDependencies:
-      tsx:
-        specifier: ^3.12.2
-        version: 3.14.0
+      bun-types:
+        specifier: ^1.0.7
+        version: 1.0.11
 
 packages:
 
@@ -1760,11 +1760,6 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
-  /@hono/node-server@1.2.2:
-    resolution: {integrity: sha512-ER8nfFRw7u3BU/44G1GXth9m2Gqa9hneZ4c6yZ4nexGHdBYMJYHlDS6cOo556EugqASi1bBLDpoVbFA9nCgjGQ==}
-    engines: {node: '>=18.14.1'}
-    dev: false
-
   /@humanwhocodes/config-array@0.11.13:
     resolution: {integrity: sha512-JSBDMiDKSzQVngfRjOdFXgFfklaXI4K9nLF49Auh21lmBWRLIK3+xTErTWD4KU54pb6coM6ESE7Awz/FNU3zgQ==}
     engines: {node: '>=10.10.0'}
@@ -2170,8 +2165,8 @@ packages:
       update-browserslist-db: 1.0.13(browserslist@4.22.1)
     dev: true
 
-  /buffer-from@1.1.2:
-    resolution: {integrity: sha512-E+XQCRwSbaaiChtv6k6Dwgc+bx+Bs6vuKJHHl5kox/BaKbhiXzqQOwK4cO22yElGp2OCmjwVhT3HmxgyPGnJfQ==}
+  /bun-types@1.0.11:
+    resolution: {integrity: sha512-XaDwjnBlkdTOtBEAcXhDnPSKFMlwFK/526z0iyairYIDhZJMzZM1QU4D7XRiEI2SpKQWexn0S/LN9Mwx5xSJNg==}
     dev: true
 
   /callsites@3.1.0:
@@ -2594,12 +2589,6 @@ packages:
     engines: {node: '>=6'}
     dev: false
 
-  /get-tsconfig@4.7.2:
-    resolution: {integrity: sha512-wuMsz4leaj5hbGgg4IvDU0bqJagpftG5l5cXIAvo8uZrqn0NJqwtfupTN00VnkQJPcIRrxYrm1Ue24btpCha2A==}
-    dependencies:
-      resolve-pkg-maps: 1.0.0
-    dev: true
-
   /glob-parent@5.1.2:
     resolution: {integrity: sha512-AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow==}
     engines: {node: '>= 6'}
@@ -2675,8 +2664,8 @@ packages:
       react-is: 16.13.1
     dev: false
 
-  /hono@3.10.0:
-    resolution: {integrity: sha512-rN8PNMt66U58Qj3+L8gr7EsaYnj56cBDS2MjhUnMgDaXoyw44/OeFDsmXXzn/YQ7CAWeENC3Dq/kp+4RJSNE3Q==}
+  /hono@3.10.1:
+    resolution: {integrity: sha512-4jPKCmYWLAoCMpmvOU+xNOQYdcNftip7sM/IsO8EPyGAtjk9fGNyUchG6huSzLrY449WDNGFPetVs5doepNnlA==}
     engines: {node: '>=16.0.0'}
     dev: false
 
@@ -3112,10 +3101,6 @@ packages:
     resolution: {integrity: sha512-pb/MYmXstAkysRFx8piNI1tGFNQIFA3vkE3Gq4EuA1dF6gHp/+vgZqsCGJapvy8N3Q+4o7FwvquPJcnZ7RYy4g==}
     engines: {node: '>=4'}
 
-  /resolve-pkg-maps@1.0.0:
-    resolution: {integrity: sha512-seS2Tj26TBVOC2NIc2rOe2y2ZO7efxITtLZcGSOnHHNOQ7CkiUBfw0Iw2ck6xkIhPwLhKNLS8BO+hEpngQlqzw==}
-    dev: true
-
   /resolve@1.22.8:
     resolution: {integrity: sha512-oKWePCxqpd6FlLvGV1VU0x7bkPmmCNolxzjMf4NczoDnQcIWrAF+cPtZn5i6n+RfD2d9i0tzpKnG6Yk168yIyw==}
     hasBin: true
@@ -3192,22 +3177,10 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /source-map-support@0.5.21:
-    resolution: {integrity: sha512-uBHU3L3czsIyYXKX88fdrGovxdSCoTGDRZ6SYXtSRxLZUzHg5P/66Ht6uoUlHu9EZod+inXhKo3qQgwXUT/y1w==}
-    dependencies:
-      buffer-from: 1.1.2
-      source-map: 0.6.1
-    dev: true
-
   /source-map@0.5.7:
     resolution: {integrity: sha512-LbrmJOMUSdEVxIKvdcJzQC+nQhe8FUZQTXQy6+I75skNgn3OoQ0DZA8YnFa7gp8tqtL3KPf1kmo0R5DoApeSGQ==}
     engines: {node: '>=0.10.0'}
     dev: false
-
-  /source-map@0.6.1:
-    resolution: {integrity: sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==}
-    engines: {node: '>=0.10.0'}
-    dev: true
 
   /strip-ansi@6.0.1:
     resolution: {integrity: sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==}
@@ -3282,17 +3255,6 @@ packages:
   /tslib@2.6.2:
     resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
     dev: false
-
-  /tsx@3.14.0:
-    resolution: {integrity: sha512-xHtFaKtHxM9LOklMmJdI3BEnQq/D5F73Of2E1GDrITi9sgoVkvIsrQUTY1G8FlmGtA+awCI4EBlTRRYxkL2sRg==}
-    hasBin: true
-    dependencies:
-      esbuild: 0.18.20
-      get-tsconfig: 4.7.2
-      source-map-support: 0.5.21
-    optionalDependencies:
-      fsevents: 2.3.3
-    dev: true
 
   /type-check@0.4.0:
     resolution: {integrity: sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew==}
@@ -3424,3 +3386,7 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
     dev: true
+
+  /zod@3.22.4:
+    resolution: {integrity: sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==}
+    dev: false
