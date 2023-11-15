@@ -16,7 +16,8 @@ export const EXPERIMENTS = [
     group: {
       id: '1',
       name: 'My experiments group'
-    }
+    },
+    parentId: null
   },
   {
     id: '2',
@@ -46,5 +47,6 @@ export const EXPERIMENTS = [
     id: '3',
     description: 'Mauris faucibus magna commodo, luctus mi in, congue eros. Nam posuere, augue in venenatis pharetra, ante tortor dictum lacus, eget dignissim ipsum arcu vitae libero. ',
     name: 'Experiment 3',
+    parentId: null
   }
 ]
