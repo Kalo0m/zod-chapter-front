@@ -7,7 +7,6 @@ const app = new Hono()
 app.use('/*', cors())
 app.get('/', (c) => c.text('Hello Hono!'))
 
-app.get('/experiments', (c) => c.json(EXPERIMENTS)
-)
+app.get('/experiments', (c) => c.json(EXPERIMENTS))
 
 export default app
