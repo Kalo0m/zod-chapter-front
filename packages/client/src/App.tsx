@@ -67,9 +67,7 @@ function App() {
                     </Tag>
                   ))}
                 </Td>
-                <Td>
-                  {experiment.parent === undefined ? "🚫" : experiment.parent}
-                </Td>
+                <Td>{experiment.parent === null ? "🚫" : experiment.parent}</Td>
               </Tr>
             ))}
           </Tbody>
