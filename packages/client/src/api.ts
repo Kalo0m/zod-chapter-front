@@ -1,4 +1,4 @@
-import { z } from 'zod'
+import { ZodAny, z } from 'zod'
 const API_URL = 'http://localhost:3000'
 
 const ExperimentSchema = z.object({
@@ -18,8 +18,9 @@ const ExperimentSchema = z.object({
       id: z.string(),
       name: z.string(),
     })
-    .optional(),
-  parent: z.string().optional(),
+    .optional()
+    .or(z.array(z.undefined()).transform((e) => (Array.isArray(e) ? undefined : e))),
+  parent: z.string().nullable(),
 })
 
 export type Experiment = z.infer<typeof ExperimentSchema>
