@@ -1,4 +1,5 @@
-import { z } from "zod"
+import { z } from 'zod'
+const API_URL = 'http://localhost:3000'
 
 const ExperimentSchema = z.object({
   id: z.string(),
@@ -9,7 +10,7 @@ const ExperimentSchema = z.object({
       z.object({
         name: z.string(),
         color: z.string(),
-      })
+      }),
     )
     .optional(),
   group: z
@@ -24,8 +25,6 @@ const ExperimentSchema = z.object({
 })
 
 export type Experiment = z.infer<typeof ExperimentSchema>
-
-const API_URL = "http://localhost:3000"
 
 export const apiClient = {
   getExperiments: async () => {
