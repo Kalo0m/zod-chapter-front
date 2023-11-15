@@ -21,7 +21,7 @@ function App() {
   const [experiments, setExperiments] = useState<Experiment[] | undefined>(undefined)
   const [selectedExperiment, setSelectedExperiment] = useState<Experiment | undefined>(undefined)
   useEffect(() => {
-    (async () => {
+    ;(async () => {
       const experiments = await apiClient.getExperiments()
       setExperiments(experiments)
     })()
@@ -58,7 +58,7 @@ function App() {
                     </Tag>
                   ))}
                 </Td>
-                <Td>{experiment.parent === null ? "🚫" : experiment.parent}</Td>
+                <Td>{experiment.parent === undefined ? '🚫' : experiment.parent}</Td>
               </Tr>
             ))}
           </Tbody>

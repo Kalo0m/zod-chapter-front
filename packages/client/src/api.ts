@@ -18,10 +18,8 @@ const ExperimentSchema = z.object({
       id: z.string(),
       name: z.string(),
     })
-    .optional()
-    .or(z.array(z.string()))
-    .transform((value) => (Array.isArray(value) ? undefined : value)),
-  parent: z.string().nullable(),
+    .optional(),
+  parent: z.string().optional(),
 })
 
 export type Experiment = z.infer<typeof ExperimentSchema>
