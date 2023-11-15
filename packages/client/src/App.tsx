@@ -24,6 +24,7 @@ function App() {
   const [selectedExperiment, setSelectedExperiment] = useState<
     Experiment | undefined
   >(undefined);
+
   useEffect(() => {
     (async () => {
       const experiments = await apiClient.getExperiments();
@@ -47,7 +48,7 @@ function App() {
               <Th>Id</Th>
               <Th>Name</Th>
               <Th>Tags</Th>
-              <Th>Nombre de tags</Th>
+              <Th>Parent</Th>
             </Tr>
           </Thead>
           <Tbody>
@@ -66,7 +67,7 @@ function App() {
                     </Tag>
                   ))}
                 </Td>
-                <Td>{experiment.tags?.length ?? 0}</Td>
+                <Td>{experiment.parent}</Td>
               </Tr>
             ))}
           </Tbody>

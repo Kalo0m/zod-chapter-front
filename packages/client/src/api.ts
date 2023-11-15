@@ -16,6 +16,7 @@ export type Experiment = {
   description?: string
   tags?: Tag[]
   group?: Group
+  parent?: string
 }
 
 export const apiClient = {

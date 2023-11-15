@@ -21,6 +21,7 @@ export const EXPERIMENTS = [
   {
     id: '2',
     name: 'Experiment 2',
+    parentId: '1',
     description: 'Donec porttitor nibh pellentesque placerat lobortis. Ut enim ligula, aliquam at luctus non, semper aliquet lorem. Integer mattis imperdiet nibh non consectetur. Aenean accumsan vitae massa ac aliquet. Nunc massa tellus, lobortis id ultricies id, luctus id purus. Cras lacinia lectus pellentesque,',
     tags: [
       {
