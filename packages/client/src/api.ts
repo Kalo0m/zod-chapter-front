@@ -1,34 +1,15 @@
-import { ZodAny, z } from 'zod'
-const API_URL = 'http://localhost:3000'
-
-const ExperimentSchema = z.object({
-  id: z.string(),
-  name: z.string(),
-  description: z.string().optional(),
-  tags: z
-    .array(
-      z.object({
-        name: z.string(),
-        color: z.string(),
-      }),
-    )
-    .optional(),
-  group: z
-    .object({
-      id: z.string(),
-      name: z.string(),
-    })
-    .optional()
-    .or(z.array(z.undefined()).transform((e) => (Array.isArray(e) ? undefined : e))),
-  parent: z.string().nullable(),
-})
-
-export type Experiment = z.infer<typeof ExperimentSchema>
+import { api } from './petstore-client'
 
 export const apiClient = {
-  getExperiments: async () => {
-    const response = await fetch(`${API_URL}/experiments`)
-    const experiments = await response.json()
-    return ExperimentSchema.array().parse(experiments)
+  updatePet: async () => {
+    await api.post('/pet/:petId', undefined, {
+      queries: { name: 'test', status: 'available' },
+      params: { petId: 12 },
+    })
+  },
+  getPetId: async (id: number) => {
+    const pet = await api.get('/pet/:petId', { params: { petId: id } })
+    pet.name
+    // ^?
   },
 }
