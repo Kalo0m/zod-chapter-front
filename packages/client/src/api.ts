@@ -1,4 +1,4 @@
-import { ZodAny, z } from 'zod'
+import { z } from 'zod'
 const API_URL = 'http://localhost:3000'
 
 const ExperimentSchema = z.object({
