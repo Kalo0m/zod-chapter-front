@@ -30,7 +30,7 @@ export type Experiment = z.infer<typeof ExperimentSchema>
 export const apiClient = {
   getExperiments: async () => {
     const response = await fetch(`${API_URL}/experiments`)
-    const experiments = (await response.json()) as Experiment[]
+    const experiments = await response.json()
     return ExperimentSchema.array().parse(experiments)
   },
 }
