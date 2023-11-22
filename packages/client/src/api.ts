@@ -19,7 +19,9 @@ const ExperimentSchema = z.object({
       name: z.string(),
     })
     .optional()
-    .or(z.array(z.undefined()).transform((e) => (Array.isArray(e) ? undefined : e))),
+    // .or(z.array(z.undefined()).transform((e) => (Array.isArray(e) ? undefined : e))),
+    .catch(undefined),
+
   parent: z.string().nullable(),
 })
 
@@ -28,7 +30,7 @@ export type Experiment = z.infer<typeof ExperimentSchema>
 export const apiClient = {
   getExperiments: async () => {
     const response = await fetch(`${API_URL}/experiments`)
-    const experiments = await response.json()
+    const experiments = (await response.json()) as Experiment[]
     return ExperimentSchema.array().parse(experiments)
   },
 }
